@@ -20,4 +20,4 @@ You will output an integer of the number of minutes that it will take to get you
 **Sample Output**<br>
 40
 
-***[Source: SoloLearn](https://www.sololearn.com/)***
+***Source: [SoloLearn](https://www.sololearn.com/)***
