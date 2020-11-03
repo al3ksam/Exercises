@@ -32,7 +32,7 @@ namespace ndl
 }
 
 
-int main(int argc, char * *argv)
+int main(int argc, char** argv)
 {
 	std::string sName;
 	std::string sAgentCount;
