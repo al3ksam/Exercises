@@ -56,7 +56,7 @@ int main(int argc, char** argv)
 	
 	ndl::stoi(sAgentCount, &agentCount);
 
-	std::cout << sName << "\r\n" << agentCount << "\r\n" << sOtherNames;
+	std::cout << sName << "\r\n" << agentCount << "\r\n" << sOtherNames << std::endl;
 
 	for (std::vector<std::string>::const_iterator it = names.cbegin(); it != names.cend(); ++it)
 	{
