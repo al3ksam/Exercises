@@ -6,7 +6,7 @@
 
 namespace ndl
 {
-	int stoi(const std::string& str, int* value, std::size_t* pos = (std::size_t*)nullptr, const int& base = 10)
+	int stoi(const std::string& str, int* const value, std::size_t* pos = (std::size_t*)nullptr, const int& base = 10)
 	{
 		try
 		{
