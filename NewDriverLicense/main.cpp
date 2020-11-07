@@ -81,7 +81,7 @@ int main(int argc, char** argv)
 	short nAgentCount = ndl::stoi(snAgentCount);
 
 	// Agents have a day off :)
-	if (nAgentCount <= 0)
+	if (nAgentCount == 0)
 	{
 		ndl::output(time);
 		return 0;
