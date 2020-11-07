@@ -8,6 +8,7 @@
 
 namespace ndl
 {
+	// Minutes to process a new license.
 	constexpr short kProcessTime = 20;
 
 	void input(std::initializer_list<std::string* const> list)
