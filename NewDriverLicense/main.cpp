@@ -4,9 +4,25 @@
 #include <iterator>
 #include <sstream>
 #include <algorithm>
+#include <initializer_list>
 
 namespace ndl
 {
+	constexpr short kProcessTime = 20;
+
+	void input(std::initializer_list<std::string* const> list)
+	{
+		for (std::string* const &data : list)
+		{
+			std::getline(std::cin, *data);
+		}
+	}
+
+	void output(const short& time)
+	{
+		std::cout << time << std::endl;
+	}
+
 	int stoi(const std::string& str, std::size_t* pos = (std::size_t*)nullptr, const int& base = 10)
 	{
 		int tmpValue = 0;
@@ -48,16 +64,21 @@ int main(int argc, char** argv)
 	std::string snAgentCount; // Count of Agents
 	std::string sOtherNames; // Names of other drivers
 
-	// Input 
-	std::getline(std::cin, sName);
-	std::getline(std::cin, snAgentCount);
-	std::getline(std::cin, sOtherNames);
-
 	std::vector<std::string> names;
+	short time = 0;
+
+	ndl::input({ &sName, &snAgentCount, &sOtherNames });
 
 	names.push_back(sName);
 
 	int nAgentCount = ndl::stoi(snAgentCount);
+
+	// Agents have a day off :)
+	if (nAgentCount <= 0)
+	{
+		ndl::output(time);
+		return 0;
+	}
 
 	// Extracting names from a string
 	ndl::vector::addItemsFromString(names, sOtherNames);
@@ -65,8 +86,19 @@ int main(int argc, char** argv)
 	// Sort the names in alphabetical order
 	std::sort(names.begin(), names.end());
 
+	for (std::vector<std::string>::const_iterator it = names.cbegin(); it != names.cend(); ++it)
+	{
+		
+			time += ndl::kProcessTime;
+		
+		
 
-	std::cout << sName << "\r\n" << nAgentCount << std::endl;
+		if (*it == sName) break;
+	}
+
+	ndl::output(time);
+
+
 
 	for (std::vector<std::string>::const_iterator it = names.cbegin(); it != names.cend(); ++it)
 	{
