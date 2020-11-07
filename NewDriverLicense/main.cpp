@@ -23,13 +23,13 @@ namespace ndl
 		std::cout << time << std::endl;
 	}
 
-	int stoi(const std::string& str, std::size_t* pos = (std::size_t*)nullptr, const int& base = 10)
+	short stoi(const std::string& str, std::size_t* pos = (std::size_t*)nullptr, const int& base = 10)
 	{
-		int tmpValue = 0;
+		short tmpValue = 0;
 
 		try
 		{
-			tmpValue = std::stoi(str, pos, base);
+			tmpValue = static_cast<short>(std::stoi(str, pos, base));
 
 			tmpValue = tmpValue < 0 ? 0 : tmpValue;
 
@@ -71,7 +71,7 @@ int main(int argc, char** argv)
 
 	names.push_back(sName);
 
-	int nAgentCount = ndl::stoi(snAgentCount);
+	short nAgentCount = ndl::stoi(snAgentCount);
 
 	// Agents have a day off :)
 	if (nAgentCount <= 0)
@@ -86,7 +86,8 @@ int main(int argc, char** argv)
 	// Sort the names in alphabetical order
 	std::sort(names.begin(), names.end());
 
-	for (std::vector<std::string>::const_iterator it = names.cbegin(); it != names.cend(); ++it)
+	short i = 0;
+	for (std::vector<std::string>::const_iterator it = names.cbegin(); it != names.cend(); ++it, ++i)
 	{
 		
 			time += ndl::kProcessTime;
