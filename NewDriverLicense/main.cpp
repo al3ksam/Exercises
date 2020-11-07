@@ -12,7 +12,7 @@ namespace ndl
 
 	void input(std::initializer_list<std::string* const> list)
 	{
-		for (std::string* const &data : list)
+		for (std::string* const & data : list)
 		{
 			std::getline(std::cin, *data);
 		}
