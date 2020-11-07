@@ -27,14 +27,17 @@ namespace ndl
 		return 0;
 	}
 
-	void separateString(const std::string& str, std::vector<std::string>& vector, const char& separator = ' ')
+	namespace vector
 	{
-		std::stringstream sstream(str);
-		std::string segment;
-
-		while (std::getline(sstream, segment, separator))
+		void addItemsFromString(std::vector<std::string>& vector, const std::string& str, const char& separator = ' ')
 		{
-			vector.push_back(segment);
+			std::stringstream sstream(str);
+			std::string segment;
+
+			while (std::getline(sstream, segment, separator))
+			{
+				vector.push_back(segment);
+			}
 		}
 	}
 }
@@ -45,24 +48,27 @@ int main(int argc, char** argv)
 	std::string snAgentCount; // Count of Agents
 	std::string sOtherNames; // Names of other drivers
 
-	std::vector<std::string> otherNames;
-
 	// Input 
 	std::getline(std::cin, sName);
 	std::getline(std::cin, snAgentCount);
 	std::getline(std::cin, sOtherNames);
 
+	std::vector<std::string> names;
+
+	names.push_back(sName);
+
 	int nAgentCount = ndl::stoi(snAgentCount);
 
 	// Extracting names from a string
-	ndl::separateString(sOtherNames, otherNames);
+	ndl::vector::addItemsFromString(names, sOtherNames);
 
 	// Sort the names in alphabetical order
-	std::sort(otherNames.begin(), otherNames.end());
+	std::sort(names.begin(), names.end());
+
 
 	std::cout << sName << "\r\n" << nAgentCount << std::endl;
 
-	for (std::vector<std::string>::const_iterator it = otherNames.cbegin(); it != otherNames.cend(); ++it)
+	for (std::vector<std::string>::const_iterator it = names.cbegin(); it != names.cend(); ++it)
 	{
 		std::cout << *it << std::endl;
 	}
