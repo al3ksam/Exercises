@@ -42,25 +42,21 @@ namespace ndl
 int main(int argc, char** argv)
 {
 	std::string sName;
-	std::string sAgentCount;
+	std::string snAgent;
 	std::string sOtherNames;
 
 	std::vector<std::string> otherNames;
 
 	std::getline(std::cin, sName);
-	std::getline(std::cin, sAgentCount);
+	std::getline(std::cin, snAgent);
 	std::getline(std::cin, sOtherNames);
 
-	int agentCount = ndl::stoi(sAgentCount);
+	int nAgent = ndl::stoi(snAgent);
 
 	ndl::separateString(sOtherNames, otherNames);
-	
-	
 
 
-
-
-	std::cout << sName << "\r\n" << agentCount << std::endl;
+	std::cout << sName << "\r\n" << nAgent << std::endl;
 
 	for (std::vector<std::string>::const_iterator it = otherNames.cbegin(); it != otherNames.cend(); ++it)
 	{
