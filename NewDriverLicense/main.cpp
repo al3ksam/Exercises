@@ -26,7 +26,7 @@ namespace ndl
 		return 0;
 	}
 
-	void separateString(const std::string& str, std::vector<std::string>& vector, const char& separator = '_')
+	void separateString(const std::string& str, std::vector<std::string>& vector, const char& separator = ' ')
 	{
 		std::stringstream sstream(str);
 		std::string segment;
@@ -51,6 +51,8 @@ int main(int argc, char** argv)
 	std::getline(std::cin, sOtherNames);
 
 	int nAgentCount = ndl::stoi(snAgentCount);
+
+	
 
 	ndl::separateString(sOtherNames, otherNames);
 
