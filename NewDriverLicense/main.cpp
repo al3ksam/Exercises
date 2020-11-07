@@ -3,6 +3,7 @@
 #include <vector>
 #include <iterator>
 #include <sstream>
+#include <algorithm>
 
 namespace ndl
 {
@@ -40,22 +41,24 @@ namespace ndl
 
 int main(int argc, char** argv)
 {
-	std::string sName;
-	std::string snAgentCount;
-	std::string sOtherNames;
+	std::string sName; // Our name
+	std::string snAgentCount; // Count of Agents
+	std::string sOtherNames; // Names of other drivers
 
 	std::vector<std::string> otherNames;
 
+	// Input 
 	std::getline(std::cin, sName);
 	std::getline(std::cin, snAgentCount);
 	std::getline(std::cin, sOtherNames);
 
 	int nAgentCount = ndl::stoi(snAgentCount);
 
-	
-
+	// Extracting names from a string
 	ndl::separateString(sOtherNames, otherNames);
 
+	// Sort the names in alphabetical order
+	std::sort(otherNames.begin(), otherNames.end());
 
 	std::cout << sName << "\r\n" << nAgentCount << std::endl;
 
