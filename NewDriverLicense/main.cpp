@@ -86,13 +86,15 @@ int main(int argc, char** argv)
 	// Sort the names in alphabetical order
 	std::sort(names.begin(), names.end());
 
-	short i = 0;
+	short i = 1;
+	time = ndl::kProcessTime;
 	for (std::vector<std::string>::const_iterator it = names.cbegin(); it != names.cend(); ++it, ++i)
 	{
-		
+		if (i > nAgentCount)
+		{
 			time += ndl::kProcessTime;
-		
-		
+			i = 1;
+		}		
 
 		if (*it == sName) break;
 	}
