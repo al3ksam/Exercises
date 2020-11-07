@@ -87,6 +87,7 @@ int main(int argc, char** argv)
 	// Sort the names in alphabetical order
 	std::sort(names.begin(), names.end());
 
+	// Issuing new licenses
 	short i = 1;
 	time = ndl::kProcessTime;
 	for (std::vector<std::string>::const_iterator it = names.cbegin(); it != names.cend(); ++it, ++i)
@@ -101,13 +102,6 @@ int main(int argc, char** argv)
 	}
 
 	ndl::output(time);
-
-
-
-	for (std::vector<std::string>::const_iterator it = names.cbegin(); it != names.cend(); ++it)
-	{
-		std::cout << *it << std::endl;
-	}
 
 	return 0;
 }
