@@ -6,27 +6,34 @@
 
 namespace ndl
 {
-	int stoi(const std::string& str, int* const value, std::size_t* pos = (std::size_t*)nullptr, const int& base = 10)
+	int stoi(const std::string& str, std::size_t* pos = (std::size_t*)nullptr, const int& base = 10)
 	{
+		int tmpValue = 0;
+
 		try
 		{
-			*value = std::stoi(str, pos, base);
+			tmpValue = std::stoi(str, pos, base);
 
-			*value = *value < 0 ? 0 : *value;
+			tmpValue = tmpValue < 0 ? 0 : tmpValue;
 
-			return 0;
-		}
-		catch (const std::invalid_argument& ia)
-		{
-			return -1;
-		}
-		catch (const std::out_of_range& oor)
-		{
-			return -2;
+			return tmpValue;
 		}
 		catch (const std::exception& err)
 		{
-			return -3;
+			std::cout << err.what() << std::endl;
+		}
+
+		return 0;
+	}
+
+	void separateString(const std::string& str, std::vector<std::string>& vector, const char& separator = '_')
+	{
+		std::stringstream sstream(str);
+		std::string segment;
+
+		while (std::getline(sstream, segment, separator))
+		{
+			vector.push_back(segment);
 		}
 	}
 }
@@ -38,27 +45,24 @@ int main(int argc, char** argv)
 	std::string sAgentCount;
 	std::string sOtherNames;
 
-	int agentCount = 0; 
-
-	std::vector<std::string> names;
+	std::vector<std::string> otherNames;
 
 	std::getline(std::cin, sName);
 	std::getline(std::cin, sAgentCount);
 	std::getline(std::cin, sOtherNames);
 
-	std::stringstream ss(sOtherNames);
-	std::string otherName;
+	int agentCount = ndl::stoi(sAgentCount);
 
-	while (std::getline(ss, otherName, ' '))
-	{
-		names.push_back(otherName);
-	}
+	ndl::separateString(sOtherNames, otherNames);
 	
-	ndl::stoi(sAgentCount, &agentCount);
+	
 
-	std::cout << sName << "\r\n" << agentCount << "\r\n" << sOtherNames << std::endl;
 
-	for (std::vector<std::string>::const_iterator it = names.cbegin(); it != names.cend(); ++it)
+
+
+	std::cout << sName << "\r\n" << agentCount << std::endl;
+
+	for (std::vector<std::string>::const_iterator it = otherNames.cbegin(); it != otherNames.cend(); ++it)
 	{
 		std::cout << *it << std::endl;
 	}
