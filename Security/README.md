@@ -10,13 +10,13 @@ Evaluate a given floor of the casino to determine if there is a guard between th
 <br>
 
 **Input Format**<br>
-A string of characters that includes $ (money), T (thief), and G (guard), that represents the layout of the casino floor.
+A string of characters that includes **$** (money), **T** (thief), and **G** (guard), that represents the layout of the casino floor.
 <br>
-Space on the casino floor that is not occupied by either money, the thief, or a guard is represented by the character x.
+Space on the casino floor that is not occupied by either money, the thief, or a guard is represented by the character **x**.
 <br>
 
 **Output Format**<br>
-A string that says 'ALARM' if the money is in danger or 'quiet' if the money is safe.
+A string that says '**ALARM**' if the money is in danger or '**quiet**' if the money is safe.
 <br>
 
 **Sample Input**<br>
