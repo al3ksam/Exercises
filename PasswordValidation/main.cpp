@@ -5,7 +5,7 @@
 
 namespace pw
 {
-	bool isValidPassword(std::string& password)
+	bool isValidPassword(const std::string& password)
 	{
 		constexpr short kMinPwdLength{ 7 };
 
