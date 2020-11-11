@@ -12,7 +12,7 @@ namespace pw
 		if (password.length() < kMinPwdLength) return false;
 
 		const std::string sSpecialCharacters { "!@#$%&*"	};
-		const std::string sNumbers			 { "0123456789" };
+		const std::string sNumbers           { "0123456789" };
 
 		constexpr short kMinSpecialChars{ 2 };
 		constexpr short kMinNumbers{ 2 };
@@ -25,7 +25,7 @@ namespace pw
 		for 
 		(
 			std::string::const_iterator pwdIt = password.cbegin(),
-										cIt   = std::string::const_iterator(); 
+                                        cIt   = std::string::const_iterator(); 
 			pwdIt != password.cend(); ++pwdIt
 		)
 		{
