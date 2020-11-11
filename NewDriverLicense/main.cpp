@@ -4,19 +4,24 @@
 #include <iterator>
 #include <sstream>
 #include <algorithm>
-#include <initializer_list>
 
 namespace ndl
 {
 	// Minutes to process a new license.
 	constexpr short kProcessTime{ 20 };
 
-	void input(std::initializer_list<std::string* const> list)
+	struct Data
 	{
-		for (std::string* const & data : list)
-		{
-			std::getline(std::cin, *data);
-		}
+		std::string sName; // Our name
+		std::string snAgentCount; // Count of Agents
+		std::string sOtherNames; // Names of other drivers
+	};
+
+	void input(Data& data)
+	{
+		std::getline(std::cin, data.sName);
+		std::getline(std::cin, data.snAgentCount);
+		std::getline(std::cin, data.sOtherNames);
 	}
 
 	void output(const short& time)
@@ -61,18 +66,16 @@ namespace ndl
 
 int main(int argc, char** argv)
 {
-	std::string sName; // Our name
-	std::string snAgentCount; // Count of Agents
-	std::string sOtherNames; // Names of other drivers
+	ndl::Data data;
 
 	std::vector<std::string> names;
 	short time{ 0 };
 
-	ndl::input({ &sName, &snAgentCount, &sOtherNames });
+	ndl::input(data);
 
-	names.push_back(sName);
+	names.push_back(data.sName);
 
-	short nAgentCount{ ndl::stoi(snAgentCount) };
+	short nAgentCount{ ndl::stoi(data.snAgentCount) };
 
 	// Agents have a day off :)
 	if (nAgentCount == 0)
@@ -82,7 +85,7 @@ int main(int argc, char** argv)
 	}
 
 	// Extracting names from a string
-	ndl::vector::addItemsFromString(names, sOtherNames);
+	ndl::vector::addItemsFromString(names, data.sOtherNames);
 
 	// Sort the names in alphabetical order
 	std::sort(names.begin(), names.end());
@@ -98,7 +101,7 @@ int main(int argc, char** argv)
 			i = 1;
 		}		
 
-		if (*it == sName) break;
+		if (*it == data.sName) break;
 	}
 
 	ndl::output(time);
