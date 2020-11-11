@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NewDriverLicense", "NewDriv
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PasswordValidation", "PasswordValidation\PasswordValidation.vcxproj", "{2141C5D9-3DA1-4D5D-A779-1605BF2BF38E}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Security", "Security\Security.vcxproj", "{FA832976-6905-4CF6-A1F5-2A086EBF59EA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,6 +33,14 @@ Global
 		{2141C5D9-3DA1-4D5D-A779-1605BF2BF38E}.Release|x64.Build.0 = Release|x64
 		{2141C5D9-3DA1-4D5D-A779-1605BF2BF38E}.Release|x86.ActiveCfg = Release|Win32
 		{2141C5D9-3DA1-4D5D-A779-1605BF2BF38E}.Release|x86.Build.0 = Release|Win32
+		{FA832976-6905-4CF6-A1F5-2A086EBF59EA}.Debug|x64.ActiveCfg = Debug|x64
+		{FA832976-6905-4CF6-A1F5-2A086EBF59EA}.Debug|x64.Build.0 = Debug|x64
+		{FA832976-6905-4CF6-A1F5-2A086EBF59EA}.Debug|x86.ActiveCfg = Debug|Win32
+		{FA832976-6905-4CF6-A1F5-2A086EBF59EA}.Debug|x86.Build.0 = Debug|Win32
+		{FA832976-6905-4CF6-A1F5-2A086EBF59EA}.Release|x64.ActiveCfg = Release|x64
+		{FA832976-6905-4CF6-A1F5-2A086EBF59EA}.Release|x64.Build.0 = Release|x64
+		{FA832976-6905-4CF6-A1F5-2A086EBF59EA}.Release|x86.ActiveCfg = Release|Win32
+		{FA832976-6905-4CF6-A1F5-2A086EBF59EA}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
