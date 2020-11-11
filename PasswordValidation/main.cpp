@@ -22,12 +22,10 @@ namespace pw
 
 		bool bIsValid = false;
 
-		for 
-		(
-			std::string::const_iterator pwdIt = password.cbegin(),
-                                        cIt   = std::string::const_iterator(); 
-			pwdIt != password.cend(); ++pwdIt
-		)
+		for (std::string::const_iterator 
+				pwdIt = password.cbegin(),
+				cIt   = std::string::const_iterator(); 
+			pwdIt != password.cend(); ++pwdIt)
 		{
 			if (nSpecialChars < kMinSpecialChars)
 			{
