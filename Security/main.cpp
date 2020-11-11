@@ -27,11 +27,9 @@ int main(int argc, char** argv)
 	});
 
 	std::string sFloor;
-
 	std::getline(std::cin, sFloor);
 
 	security::State securityState = security::State::kDefault;
-
 	security::checkFloor(sFloor, securityState);
 	
 	if (securityState == security::State::kAlarm)
