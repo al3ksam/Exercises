@@ -33,7 +33,7 @@ int main(int argc, char** argv)
 	security::State securityState = security::State::kDefault;
 
 	security::checkFloor(sFloor, securityState);
-
+	
 	if (securityState == security::State::kAlarm)
 	{
 		output("ALARM");
