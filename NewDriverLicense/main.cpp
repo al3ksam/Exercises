@@ -9,7 +9,7 @@
 namespace ndl
 {
 	// Minutes to process a new license.
-	constexpr short kProcessTime = 20;
+	constexpr short kProcessTime{ 20 };
 
 	void input(std::initializer_list<std::string* const> list)
 	{
@@ -26,7 +26,7 @@ namespace ndl
 
 	short stoi(const std::string& str, std::size_t* pos = (std::size_t*)nullptr, const int& base = 10)
 	{
-		short tmpValue = 0;
+		short tmpValue{ 0 };
 
 		try
 		{
@@ -66,7 +66,7 @@ int main(int argc, char** argv)
 	std::string sOtherNames; // Names of other drivers
 
 	std::vector<std::string> names;
-	short time = 0;
+	short time{ 0 };
 
 	ndl::input({ &sName, &snAgentCount, &sOtherNames });
 
@@ -88,7 +88,7 @@ int main(int argc, char** argv)
 	std::sort(names.begin(), names.end());
 
 	// Issuing new licenses
-	short i = 1;
+	short i{ 1 };
 	time = ndl::kProcessTime;
 	for (std::vector<std::string>::const_iterator it = names.cbegin(); it != names.cend(); ++it, ++i)
 	{
