@@ -1,9 +1,3 @@
-/*
-* New Driver's License
-* Author: Aleksandr Matyuhin
-* GitHub: https://github.com/al3ksam/Exercises/tree/master/NewDriverLicense
-*/
-
 #include <iostream>
 #include <string>
 #include <vector>
