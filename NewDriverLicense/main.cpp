@@ -72,7 +72,7 @@ int main(int argc, char** argv)
 
 	names.push_back(sName);
 
-	short nAgentCount = ndl::stoi(snAgentCount);
+	short nAgentCount{ ndl::stoi(snAgentCount) };
 
 	// Agents have a day off :)
 	if (nAgentCount == 0)
@@ -90,7 +90,7 @@ int main(int argc, char** argv)
 	// Issuing new licenses
 	short i{ 1 };
 	time = ndl::kProcessTime;
-	for (std::vector<std::string>::const_iterator it = names.cbegin(); it != names.cend(); ++it, ++i)
+	for (std::vector<std::string>::const_iterator it{ names.cbegin() }; it != names.cend(); ++it, ++i)
 	{
 		if (i > nAgentCount)
 		{
