@@ -15,6 +15,16 @@ namespace security
 
 	void checkFloor(const std::string& floor, State& securityState)
 	{
+		constexpr char chMoney = '$';
+		constexpr char chGuard = 'G';
+		constexpr char chThief = 'T';
+
+		// xxxxxGxx$xxxT
+		for (std::string::const_iterator cIt = floor.cbegin(); cIt != floor.cend(); ++cIt)
+		{
+			// TODO:
+		}
+		 
 		securityState = State::kQuiet;
 	}
 }
