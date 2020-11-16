@@ -15,14 +15,19 @@ namespace security
 
 	void checkFloor(const std::string& floor, State& securityState)
 	{
-		constexpr char chMoney = '$';
-		constexpr char chGuard = 'G';
-		constexpr char chThief = 'T';
+		constexpr char chMoney{ '$' };
+		constexpr char chGuard{ 'G' };
+		constexpr char chThief{ 'T' };
+
+		bool bHaveGuard = false;
+		bool bHaveThief = false;
 
 		// xxxxxGxx$xxxT
-		for (std::string::const_iterator cIt = floor.cbegin(); cIt != floor.cend(); ++cIt)
+		for (std::string::const_iterator cIt{ floor.cbegin() }; cIt != floor.cend(); ++cIt)
 		{
-			// TODO:
+			if (*cIt == chGuard && bHaveThief == false && bHaveGuard == false) bHaveGuard = true;
+
+			
 		}
 		 
 		securityState = State::kQuiet;
@@ -39,7 +44,7 @@ int main(int argc, char** argv)
 	std::string sFloor;
 	std::getline(std::cin, sFloor);
 
-	security::State securityState = security::State::kDefault;
+	security::State securityState{ security::State::kDefault };
 	security::checkFloor(sFloor, securityState);
 	
 	if (securityState == security::State::kAlarm)
