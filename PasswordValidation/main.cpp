@@ -1,3 +1,5 @@
+// Created by Aleksandr Matyuhin
+
 #include <iostream>
 #include <string>
 #include <algorithm>
