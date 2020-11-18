@@ -25,12 +25,18 @@ namespace security
 		// xxxxxGxx$xxxT
 		for (std::string::const_iterator cIt{ floor.cbegin() }; cIt != floor.cend(); ++cIt)
 		{
-			if (*cIt == chGuard && bHaveThief == false && bHaveGuard == false) bHaveGuard = true;
-
+			if (*cIt == chGuard && bHaveGuard == false)
+			{
+				bHaveGuard = true;
+			}
 			
+			if (*cIt == chMoney && bHaveGuard == true)
+			{
+				securityState = State::kQuiet;
+			}
 		}
 		 
-		securityState = State::kQuiet;
+		//securityState = State::kQuiet;
 	}
 }
 
