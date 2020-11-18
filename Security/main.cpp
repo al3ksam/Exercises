@@ -1,8 +1,8 @@
+// Created by Aleksandr Matyuhin
+
 #include <iostream>
 #include <string>
 #include <iterator>
-// Created by Aleksandr Matyuhin
-
 #include <algorithm>
 #include <functional>
 
