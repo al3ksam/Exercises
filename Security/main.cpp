@@ -37,16 +37,15 @@ namespace security
 
 			if (bMoney == false)
 			{
-				if (*cIt == chThief && bAlarm == false)
+				switch (*cIt)
 				{
-					bAlarm = true;
-				}
-				else
-				{
-					if (*cIt == chGuard && bAlarm == true)
-					{
-						bAlarm = false;
-					}
+				case chThief:
+					if (bAlarm == false) bAlarm = true;
+					break;
+
+				case chGuard:
+					if (bAlarm == true) bAlarm = false;
+					break;
 				}
 			}
 			else
