@@ -20,27 +20,42 @@ namespace security
 		constexpr char chMoney{ '$' };
 		constexpr char chGuard{ 'G' };
 		constexpr char chThief{ 'T' };
+		constexpr char chFloor{ 'x' };
 
 		bool bMoney = false;
-		bool bGuard = false;
-		bool bThief = false;
-
 		bool bAlarm = false;
 
-		// xxxxxGxx$xxxT
 		for (std::string::const_iterator cIt{ floor.cbegin() }; cIt != floor.cend(); ++cIt)
 		{
-			if (*cIt == chGuard)
+			if (*cIt == chFloor) continue;
+
+			if (*cIt == chMoney)
 			{
-				bGuard = true;
+				bMoney = true;
+				continue;
 			}
-			
-			if (*cIt == chThief)
+
+			if (bMoney == false)
 			{
-				
+				if (*cIt == chThief)
+				{
+					bAlarm = true;
+				}
+				else
+				{
+					if (*cIt == chGuard && bAlarm == true)
+					{
+						bAlarm = false;
+					}
+				}
+			}
+			else
+			{
+				bAlarm = *cIt == chThief ? true : false;
+				break;
 			}
 		}
-		 
+
 		securityState = bAlarm == true ? State::kAlarm : State::kQuiet;
 	}
 }
