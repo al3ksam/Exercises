@@ -51,7 +51,10 @@ namespace security
 			}
 			else
 			{
-				bAlarm = *cIt == chThief ? true : false;
+				if (bAlarm == false)
+				{
+					bAlarm = *cIt == chThief ? true : false;
+				}
 				break;
 			}
 		}
