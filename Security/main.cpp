@@ -37,7 +37,7 @@ namespace security
 
 			if (bMoney == false)
 			{
-				if (*cIt == chThief)
+				if (*cIt == chThief && bAlarm == false)
 				{
 					bAlarm = true;
 				}
