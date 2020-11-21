@@ -22,8 +22,8 @@ namespace security
 		constexpr char chThief{ 'T' };
 		constexpr char chFloor{ 'x' };
 
-		bool bMoney = false;
-		bool bAlarm = false;
+		bool bMoney{ false };
+		bool bAlarm{ false };
 
 		for (std::string::const_iterator cIt{ floor.cbegin() }; cIt != floor.cend(); ++cIt)
 		{
@@ -50,9 +50,9 @@ namespace security
 			}
 			else
 			{
-				if (bAlarm == false)
+				if (bAlarm == false && *cIt == chThief)
 				{
-					bAlarm = *cIt == chThief ? true : false;
+					bAlarm = true;
 				}
 				break;
 			}
